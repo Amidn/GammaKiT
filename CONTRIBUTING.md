@@ -1,53 +1,27 @@
-Contributing to Gammapy
-=======================
-
-Note: This text is freely inspired by the `Contribution.md <https://raw.githubusercontent.com/astropy/astropy/main/CONTRIBUTING.md>`
-file of the [Astropy](https://www.astropy.org/) project.
+Contributing to GammaKiT
+========================
 
 Reporting Issues
 ----------------
+If you encounter a problem or want to request a new feature, please open an issue on our GitHub repository:
+[https://github.com/Amidn/GammaKiT/issues](https://github.com/Amidn/GammaKiT/issues).
 
-When opening an issue to report a problem or request for a new feature, please try to provide a minimal code
-example that reproduces the issue along with details of the operating system and `Gammapy` version you are using.
-
+Include a minimal code example that reproduces the issue, along with details about your operating system and GammaKiT version.
 
 Contributing Code and Documentation
 -----------------------------------
+Thank you for considering contributing to GammaKiT! We welcome code contributions, documentation updates, and feedback.
 
-So you are interested in contributing to the Gammapy Project?  Excellent!
-We love contributions! Gammapy is open source, built on open source, and
-we'd love to have you hang out in our community.
+Most contributions to GammaKiT are done via [pull requests](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests)
+from GitHub users' forks of the [GammaKiT repository](https://github.com/Amidn/GammaKiT). Refer to our
+[Developer Guide](https://github.com/Amidn/GammaKiT/wiki/Developer-Guide) for detailed instructions.
 
-How to Contribute, Best Practices
----------------------------------
+Authorship Policy
+-----------------
+Contributors to GammaKiT are recognized in the `CITATION.cff` and `codemeta.json` files. Releases and contributions are associated with a DOI using the [Zenodo platform](https://zenodo.org/).
 
-Most contributions to Gammapy are done via [pull requests](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests)
-from GitHub users' forks of the [gammapy repository](https://github.com/gammapy/gammapy). If you are new to this
-style of development, you will want to read over our [Developer guide](https://docs.gammapy.org/dev/development/intro.html).
-
-Promoting contributions
------------------------
-Even in the Open Source landscape, promoting the work of any is not only *natural* but also a duty for the 
-Gammapy leading parties. We are taking care that 
-**each contribution is correctly awarded for each product of the Gammapy project**.  
-
-An [Authorship Policy](https://github.com/gammapy/gammapy/blob/master/docs/development/pigs/pig-024.rst) 
-has been settled of each type of products (releases, papers, conferences). Note that each code release
-(LTS, feature release or bug release) will be published with an official DOI (though the 
-[Zenodo deposit](https://zenodo.org/)) that you can use as an Open Science publication. This publication 
-is associated with a list of *authors* stored into our metada files (``CITATION.cff`` and ``codemeta.json``).
-
-In order to properly build the authors list with you as contributor, Gammapy is using the so-called 
-**Developer Certificate of Origin** (DCO). This is a lightweight way for contributors to certify 
-that they wrote or otherwise have the right to submit the code they are contributing to the project.
-The used DCO is from the Linux Foundation and can be found 
-[below](#markdown-header-gammapy-developer-certification-of-origin). The practical acceptation of our DCO
-can be found 
-[here](https://docs.gammapy.org/dev/development/intro.html#Acceptation-of-the-Developer-Certificate-of-Origin-(DCO)).
-
-Gammapy Developer Certification of Origin
------------------------------------------
-
+GammaKiT Developer Certification of Origin
+-------------------------------------------
 > Developer Certificate of Origin
 > Version 1.1
 > 
@@ -55,7 +29,6 @@ Gammapy Developer Certification of Origin
 > 
 > Everyone is permitted to copy and distribute verbatim copies of this
 > license document, but changing it is not allowed.
-> 
 > 
 > Developer's Certificate of Origin 1.1
 > 
@@ -82,5 +55,3 @@ Gammapy Developer Certification of Origin
 >     personal information I submit with it, including my sign-off) is
 >     maintained indefinitely and may be redistributed consistent with
 >     this project or the open source license(s) involved.
-> 
- 
