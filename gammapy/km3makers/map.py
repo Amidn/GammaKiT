@@ -16,12 +16,12 @@ from .utils import (
     make_psf_map,
 )
 
-__all__ = ["MapDatasetMaker"]
+__all__ = ["km3_MapDatasetMaker"]
 
 log = logging.getLogger(__name__)
 
 
-class MapDatasetMaker(Maker):
+class km3_MapDatasetMaker(Maker):
     """Make binned maps for a single IACT observation.
 
     Parameters
