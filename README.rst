@@ -3,7 +3,7 @@ GammaKiT
 
 A Python Package for Neutrino and Gamma-ray Astronomy.
 
-GammaKiT is a fork of [GammaPy](https://github.com/gammapy/gammapy), customized for KM3NeT data analysis. It integrates the unique requirements of neutrino observatories with GammaPy's robust gamma-ray analysis framework.
+GammaKiT is a fork of GammaPy(https://github.com/gammapy/gammapy), customized for KM3NeT data analysis. It integrates the unique requirements of neutrino observatories with GammaPy's robust gamma-ray analysis framework.
 
 * Webpage: https://github.com/Amidn/GammaKiT
 * Documentation: https://github.com/Amidn/GammaKiT/wiki
