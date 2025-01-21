@@ -21,6 +21,7 @@ the following sub-packages (e.g. `gammapy.makers`):
  astro        --- Astrophysical source and population models
  catalog      --- Source catalog tools
  makers       --- Data reduction functionality
+ km3makers    --- KM3NeT data reduction functionality
  data         --- Data and observation handling
  irf          --- Instrument response functions (IRFs)
  maps         --- Sky map data structures
@@ -29,8 +30,8 @@ the following sub-packages (e.g. `gammapy.makers`):
  stats        --- Statistics tools
  utils        --- Utility functions and classes
 """
-
-__all__ = ["__version__", "song"]
+from . import km3makers
+__all__ = ["__version__", "song", "km3makers"]
 
 from importlib.metadata import PackageNotFoundError, version
 
