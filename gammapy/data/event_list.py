@@ -722,10 +722,16 @@ class EventList:
 
     @property
     def pointing_radec(self):
-        """Pointing RA / DEC sky coordinates as a `~astropy.coordinates.SkyCoord` object."""
+        """Pointing RA / DEC sky coordinates as a `~astropy.coordinates.SkyCoord` object.
+        ["TELESCOP"] == "KM3NET" added by Amid  
+        """
         info = self.table.meta
-        lon, lat = info["RA_PNT"], info["DEC_PNT"]
+        if info["TELESCOP"] == "KM3NET":
+           lon, lat = self.table["RA_PNT"], self.table["DEC_PNT"]
+        else:    
+            lon, lat = info["RA_PNT"], info["DEC_PNT"]
         return SkyCoord(lon, lat, unit="deg", frame="icrs")
+
 
     @property
     def offset(self):
@@ -734,6 +740,7 @@ class EventList:
         center = self.pointing_radec
         offset = center.separation(position)
         return Angle(offset, unit="deg")
+
 
     @property
     def offset_from_median(self):
