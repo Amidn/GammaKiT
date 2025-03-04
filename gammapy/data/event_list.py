@@ -19,6 +19,9 @@ from gammapy.utils.scripts import make_path
 from gammapy.utils.testing import Checker
 from gammapy.utils.time import time_ref_from_dict
 from .metadata import EventListMetaData
+from astropy.coordinates import EarthLocation, AltAz, ICRS     
+from astropy.time import Time
+
 
 __all__ = ["EventList"]
 
@@ -722,9 +725,7 @@ class EventList:
 
     @property
     def pointing_radec(self):
-        """Pointing RA / DEC sky coordinates as a `~astropy.coordinates.SkyCoord` object.
-        ["TELESCOP"] == "KM3NET" added by Amid  
-        """
+        """Pointing RA / DEC sky coordinates as a `~astropy.coordinates.SkyCoord` object."""
         info = self.table.meta
         if info["TELESCOP"] == "KM3NET":
            lon, lat = self.table["RA_PNT"], self.table["DEC_PNT"]
@@ -732,15 +733,37 @@ class EventList:
             lon, lat = info["RA_PNT"], info["DEC_PNT"]
         return SkyCoord(lon, lat, unit="deg", frame="icrs")
 
-
     @property
     def offset(self):
         """Event offset from the array pointing position as an `~astropy.coordinates.Angle`."""
-        position = self.radec
-        center = self.pointing_radec
-        offset = center.separation(position)
-        return Angle(offset, unit="deg")
+        info = self.table.meta
+        if info["TELESCOP"] == "KM3NET":
+            if info["INSTRUME"] == "ORCA":
+                # TODO ADD ORCA LOCATION
+                pass
+            if info["INSTRUME"] == "ARCA":
+                km3net_location = EarthLocation(lat=36.25*u.deg, lon=16.05*u.deg, height=0*u.m)
+            """Event offset from the array pointing position based on the difference in zenith angle.
 
+            The zenith angle is computed as 90° minus the altitude in the AltAz frame.
+            Since the difference in zenith angle equals the absolute difference in altitude,
+            this property returns |event_altitude - center_altitude|.
+            """
+            # Get the AltAz positions for the events
+            time = Time(self.table["MJD"], format='mjd')
+            altaz_frame = AltAz(obstime=time, location=km3net_location)
+            position = self.radec
+            source_icrs = SkyCoord(ra=position.ra, dec=position.dec, frame='icrs')
+            source_altaz = source_icrs.transform_to(altaz_frame)
+
+            offset = (180*u.deg) - ((90*u.deg) - source_altaz.alt)
+            return Angle(offset, unit="deg")
+
+        else:    
+            position = self.radec
+            center = self.pointing_radec
+            offset = center.separation(position)
+            return Angle(offset, unit="deg")
 
     @property
     def offset_from_median(self):

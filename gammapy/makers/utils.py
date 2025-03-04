@@ -57,6 +57,8 @@ def _get_fov_coords(pointing, irf, geom, use_region_center=True, obstime=None):
 
     if irf.has_offset_axis:
         coords["offset"] = sky_coord.separation(pointing_icrs)
+        # Calculate angular separation only in declination (Dec)
+        # coords["offset"] = np.abs(sky_coord.dec - pointing_icrs.dec)
     else:
         if irf.fov_alignment == FoVAlignment.ALTAZ:
             if not isinstance(pointing, FixedPointingInfo) and isinstance(
